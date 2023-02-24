@@ -51,10 +51,10 @@ i2c:
   sda: D2
   scl: D1
 
-font:
-  - file: "font/monofont.ttf"
-    id: opensans
-    size: 12
+#font:
+#  - file: "font/monofont.ttf"
+#    id: opensans
+#    size: 12
 
 display:
   - platform: ssd1306_i2c
