@@ -49,16 +49,15 @@ captive_portal:
 
 spi:
   #max31855 & max31865 on the same spi 
-  miso_pin: D12 #done
-  mosi_pin: D13 #done
-  clk_pin: D14 #done
+  miso_pin: D6 #done
+  mosi_pin: D7 #done
+  clk_pin: D3 #done
 
 sensor:
   - platform: max31855
   # max31855: https://esphome.io/components/sensor/max31855.html
     name: "Grill Probe Temperature"
     cs_pin: D2 #done
-    update_interval: 60s
     #temperature:
     #  id: temp
     #  name: ${upper_devicename} Temperature
@@ -72,7 +71,7 @@ sensor:
   - platform: max31865
   # max31865 https://esphome.io/components/sensor/max31865.html
     name: "Grill Ambient Temperature"
-    cs_pin: D2 #done
+    cs_pin: D4 #done
     # Need to check if below is best/correct method
     reference_resistance: 430 Ω
     rtd_nominal_resistance: 100 Ω
