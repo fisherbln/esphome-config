@@ -110,19 +110,6 @@ sensor:
     pm_2_5:
       id: pm25
       name: "${upper_devicename} Particulate Matter <2.5µm Concentration"
-      accuracy_decimals: 1
-      filters:
-      - lambda: |-
-          if (id(warmed_up).state) {
-            return x;
-          } else {
-            return {};
-          }
-      - sliding_window_moving_average:
-          window_size: 10
-          send_every: 1
-          send_first_at: 1
-      - debounce: 3s
 #    pm_10_0:
 #      id: pm100
 #      name: "Particulate Matter <10.0µm Concentration"
@@ -136,46 +123,3 @@ sensor:
       id: co2
       name: "${upper_devicename} SenseAir CO2 Value"
     update_interval: 60s
-  
-binary_sensor:
-
-  - platform: template
-    name: "Warmed Up"
-    id: warmed_up
-    filters:
-      - delayed_on: 30s
-    on_press:
-      - delay: 10s
-      - switch.turn_off: measuring
-
-
-switch:
-
-  - platform: gpio
-    name: "Measuring"
-    id: measuring
-    pin:
-      number: GPIO17
-    restore_mode: ALWAYS_OFF
-    on_turn_on:
-      - binary_sensor.template.publish:
-          id: warmed_up
-          state: ON
-    on_turn_off:
-      - binary_sensor.template.publish:
-          id: warmed_up
-          state: OFF
-
-  - platform: restart
-    name: "Restart"
-
-
-# runs PMS5003 sensor every 300s to extend sensor life.
-interval:
-
-  - interval: 300s
-    then:
-      - wait_until:
-          condition:
-            api.connected: # Can use api.connected if using HA API instead
-      - switch.turn_on: measuring # Will turn itself off later
