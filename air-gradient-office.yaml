@@ -56,31 +56,31 @@ i2c:
   sda: D2
   scl: D1
 
-#font:
-#  - file: "font/monofont.ttf"
-#    id: opensans
-#    size: 12
+font:
+  - file: "/font/monofont.ttf"
+    id: opensans
+    size: 12
 
-#display:
-#  - platform: ssd1306_i2c
-#    id: oled
-#    address: 0x3c
-#    rotation: 180°
-#    model: "SH1106 128x64"
-#    pages:
-#      - id: page1
-#        lambda: |-
-#          it.printf(0, 0, id(opensans), "CO2: %.0fppm", id(co2).state);
-#          it.printf(0, 15, id(opensans), "PM25: %.0f", id(pm25).state);
-#          it.printf(0, 25, id(opensans), "Humidity: %.0f", id(humidity).state);
-#          it.printf(0, 35, id(opensans), "Temperature: %.0fC", id(temp).state);
-# re-add above and font if I ever add a display
+display:
+  - platform: ssd1306_i2c
+    id: oled
+    address: 0x3c
+    rotation: 180°
+    model: "SH1106 128x64"
+    pages:
+      - id: page1
+        lambda: |-
+          it.printf(0, 0, id(opensans), "CO2: %.0fppm", id(co2).state);
+          it.printf(0, 15, id(opensans), "PM25: %.0f", id(pm25).state);
+          it.printf(0, 25, id(opensans), "Humidity: %.0f", id(humidity).state);
+          it.printf(0, 35, id(opensans), "Temperature: %.0fC", id(temp).state);
+ re-add above and font if I ever add a display
 
-#interval:
-#  - interval: 5s
-#    then:
-#      - display.page.show_next: oled
-#      - component.update: oled
+interval:
+  - interval: 5s
+    then:
+      - display.page.show_next: oled
+      - component.update: oled
 
 uart:
   - rx_pin: D5
