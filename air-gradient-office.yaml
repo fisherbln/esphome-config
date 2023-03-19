@@ -74,7 +74,6 @@ display:
           it.printf(0, 15, id(opensans), "PM25: %.0f", id(pm25).state);
           it.printf(0, 25, id(opensans), "Humidity: %.0f", id(humidity).state);
           it.printf(0, 35, id(opensans), "Temperature: %.0fC", id(temp).state);
- re-add above and font if I ever add a display
 
 interval:
   - interval: 5s
