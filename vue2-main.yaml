@@ -1,6 +1,8 @@
 esphome:
   name: vue2-main
 
+# on electrical panel, these are plugged into right side, 2nd and 3rd from the bottom
+
 external_components:
   - source: github://emporia-vue-local/esphome@dev
     components:
