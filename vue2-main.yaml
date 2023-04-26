@@ -43,7 +43,6 @@ wifi:
   password: !secret wifi_password
   domain: !secret NET_DOMAIN
   reboot_timeout: 15min
-  fast_connect: "on"
 
 preferences:
   # the default of 1min is far too short--flash chip is rated
