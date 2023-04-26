@@ -145,21 +145,21 @@ sensor:
           filters: [*moving_avg, *pos]
       # Pay close attention to set the phase_id for each breaker by matching it to the phase/leg it connects to in the panel
       - { phase_id: phase_a, input:  "1", power: { name:  "Circuit 1 Power", id:  cir1, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_b, input:  "2", power: { name:  "Circuit 2 Power", id:  cir2, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_b, input:  "3", power: { name:  "Circuit 3 Power", id:  cir3, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_b, input:  "4", power: { name:  "Circuit 4 Power", id:  cir4, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_b, input:  "5", power: { name:  "Circuit 5 Power", id:  cir5, filters: [ *moving_avg, *pos, multiply: 1 ] } }
-      - { phase_id: phase_b, input:  "6", power: { name:  "Circuit 6 Power", id:  cir6, filters: [ *moving_avg, *pos, multiply: 1 ] } }
+      - { phase_id: phase_a, input:  "2", power: { name:  "Circuit 2 Power", id:  cir2, filters: [ *moving_avg, *pos ] } }
+      - { phase_id: phase_a, input:  "3", power: { name:  "Circuit 3 Power", id:  cir3, filters: [ *moving_avg, *pos ] } }
+      - { phase_id: phase_a, input:  "4", power: { name:  "Circuit 4 Power", id:  cir4, filters: [ *moving_avg, *pos ] } }
+      - { phase_id: phase_a, input:  "5", power: { name:  "Circuit 5 Power", id:  cir5, filters: [ *moving_avg, *pos, multiply: 1 ] } }
+      - { phase_id: phase_a, input:  "6", power: { name:  "Circuit 6 Power", id:  cir6, filters: [ *moving_avg, *pos, multiply: 1 ] } }
       - { phase_id: phase_a, input:  "7", power: { name:  "Circuit 7 Power", id:  cir7, filters: [ *moving_avg, *pos, multiply: 1 ] } }
       - { phase_id: phase_b, input:  "8", power: { name:  "Circuit 8 Power", id:  cir8, filters: [ *moving_avg, *pos ] } }
       - { phase_id: phase_b, input:  "9", power: { name:  "Circuit 9 Power", id:  cir9, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_a, input: "10", power: { name: "Circuit 10 Power", id: cir10, filters: [ *moving_avg, *pos ] } }
+      - { phase_id: phase_b, input: "10", power: { name: "Circuit 10 Power", id: cir10, filters: [ *moving_avg, *pos ] } }
       - { phase_id: phase_b, input: "11", power: { name: "Circuit 11 Power", id: cir11, filters: [ *moving_avg, *pos, multiply: 1 ] } }
-      - { phase_id: phase_a, input: "12", power: { name: "Circuit 12 Power", id: cir12, filters: [ *moving_avg, *pos, multiply: 1 ] } }
+      - { phase_id: phase_b, input: "12", power: { name: "Circuit 12 Power", id: cir12, filters: [ *moving_avg, *pos, multiply: 1 ] } }
       - { phase_id: phase_b, input: "13", power: { name: "Circuit 13 Power", id: cir13, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_a, input: "14", power: { name: "Circuit 14 Power", id: cir14, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_a, input: "15", power: { name: "Circuit 15 Power", id: cir15, filters: [ *moving_avg, *pos ] } }
-      - { phase_id: phase_a, input: "16", power: { name: "Circuit 16 Power", id: cir16, filters: [ *moving_avg, *pos, multiply: 2 ] } }
+      - { phase_id: phase_b, input: "14", power: { name: "Circuit 14 Power", id: cir14, filters: [ *moving_avg, *pos ] } }
+      - { phase_id: phase_b, input: "15", power: { name: "Circuit 15 Power", id: cir15, filters: [ *moving_avg, *pos ] } }
+      - { phase_id: phase_b, input: "16", power: { name: "Circuit 16 Power", id: cir16, filters: [ *moving_avg, *pos, multiply: 1 ] } }
   - platform: template
     name: "Total Power"
     lambda: return id(phase_a_power).state + id(phase_b_power).state;
