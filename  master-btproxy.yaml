@@ -1,0 +1,52 @@
+substitutions:
+  devicename: "master-btproxy"
+  upper_devicename: "master-btproxy"
+
+esphome:
+  name: "${devicename}"
+  friendly_name: "${upper_devicename}"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  phy_addr: 1
+  power_pin: GPIO16
+  domain: !secret NET_DOMAIN
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret encryption_key
+
+ota:
+  password: !secret ota_password
+
+#captive_portal:
+
+#dashboard_import:
+#  package_import_url: github://esphome/bluetooth-proxies/wt32-eth01.yaml@main
+
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 1100ms
+    window: 1100ms
+    active: true
+
+bluetooth_proxy:
+  active: true
+
+button:
+- platform: safe_mode
+  name: Safe Mode Boot
+  entity_category: diagnostic
