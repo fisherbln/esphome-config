@@ -93,6 +93,11 @@ uart:
     id: uart20
 
 sensor:
+  - platform: bh1750
+    name: "Illuminance"
+    address: 0x23
+    update_interval: 60s
+    
   - platform: sht3xd
     temperature:
       id: temp
