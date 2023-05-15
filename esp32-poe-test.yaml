@@ -32,14 +32,14 @@ ota:
 
 #captive_portal:
 
-#dashboard_import:
-#  package_import_url: github://esphome/bluetooth-proxies/wt32-eth01.yaml@main
+dashboard_import:
+  package_import_url: github://esphome/bluetooth-proxies/wt32-eth01.yaml@main
 
-#esp32_ble_tracker:
-#  scan_parameters:
-#    interval: 1100ms
-#    window: 1100ms
-#    active: true
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 1100ms
+    window: 1100ms
+    active: true
 
-#bluetooth_proxy:
-#  active: true
+bluetooth_proxy:
+  active: true
