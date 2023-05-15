@@ -5,6 +5,9 @@ substitutions:
 esphome:
   name: "${devicename}"
   friendly_name: "${upper_devicename}"
+  project:
+    name: esphome.bluetooth-proxy
+    version: "1.0"
 
 #esp32:
 #  board: esp32dev
