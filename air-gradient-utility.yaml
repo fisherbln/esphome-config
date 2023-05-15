@@ -94,7 +94,7 @@ uart:
 
 sensor:
   - platform: bh1750
-    name: "Lux"
+    name: "${upper_devicename} lux"
     address: 0x23
     update_interval: 60s
   - platform: sht3xd
