@@ -7,7 +7,7 @@ esphome:
   friendly_name: "${upper_devicename}"
 
 esp32:
-  board: esp32dev
+  board: wesp32
   framework:
     type: arduino
 
