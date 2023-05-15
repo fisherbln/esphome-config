@@ -6,10 +6,14 @@ esphome:
   name: "${devicename}"
   friendly_name: "${upper_devicename}"
 
+#esp32:
+#  board: esp32dev
+#  framework:
+#    type: arduino
 esp32:
-  board: esp32dev
+  board: esp32doit-devkit-v1
   framework:
-    type: arduino
+    type: esp-idf
 
 
 ethernet:
@@ -34,8 +38,8 @@ ota:
 
 #captive_portal:
 
-#dashboard_import:
-#  package_import_url: github://esphome/bluetooth-proxies/wt32-eth01.yaml@main
+dashboard_import:
+  package_import_url: github://esphome/bluetooth-proxies/wt32-eth01.yaml@main
 
 esp32_ble_tracker:
   scan_parameters:
