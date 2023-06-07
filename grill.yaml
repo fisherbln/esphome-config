@@ -29,13 +29,8 @@ preferences:
   flash_write_interval: "48h"
 
 wifi:
-  networks:
-  - ssid: !secret wifi_ssid
-    password: !secret wifi_password
-    manual_ip:
-      static_ip: 10.28.20.41
-      gateway: 10.28.20.1
-      subnet: 255.255.255.0
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   domain: !secret NET_DOMAIN
   reboot_timeout: 15min
 
