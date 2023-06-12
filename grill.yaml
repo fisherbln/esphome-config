@@ -46,7 +46,7 @@ spi:
   #max31855 & max31865 on the same spi 
   miso_pin: D6 #done
   mosi_pin: D7 #done
-  clk_pin: D3 #done
+  clk_pin: D5 #done
 
 sensor:
   - platform: max31855
