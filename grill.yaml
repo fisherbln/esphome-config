@@ -1,7 +1,7 @@
 # BBQ Temp Monitor
 substitutions:
-  devicename: "grill"
-  upper_devicename: "Grill"
+  devicename: "backyard-grill"
+  upper_devicename: "BackyardGrill"
 
 esphome:
   name: "${devicename}"
@@ -44,15 +44,15 @@ captive_portal:
 
 spi:
   #max31855 & max31865 on the same spi 
-  miso_pin: D6 #done
-  mosi_pin: D7 #done
+  miso_pin: D0 #done
+  mosi_pin: D1 #done
   clk_pin: D5 #done
 
 sensor:
   - platform: max31855
   # max31855: https://esphome.io/components/sensor/max31855.html
     name: "Grill Probe Temperature"
-    cs_pin: D2 #done
+    cs_pin: D6 #done
     #temperature:
     #  id: temp
     #  name: ${upper_devicename} Temperature
@@ -66,7 +66,7 @@ sensor:
   - platform: max31865
   # max31865 https://esphome.io/components/sensor/max31865.html
     name: "Grill Ambient Temperature"
-    cs_pin: D4 #done
+    cs_pin: D2 #done
     # Need to check if below is best/correct method
     reference_resistance: 430 Ω
     rtd_nominal_resistance: 100 Ω
