@@ -1,0 +1,120 @@
+esphome:
+  name: ${devicename}
+  friendly_name: ${friendly_name}
+
+logger:
+  # (UART logging interferes with cse7766)
+  baud_rate: 0
+
+esp8266:
+  # https://esphome.io/components/esp8266.html
+  # https://github.com/esphome/issues/issues/3263
+  # Stops relay from cycling when restarting or flashing
+  early_pin_init: false
+  board: esp01_1m
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+
+globals:
+  # Global boolean containing value if confirm is selected.
+  - id: confirm_restart
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    internal: true
+    id: the_button
+    on_press:
+      - switch.toggle: relay
+
+  - platform: status
+    name: Status
+
+sensor:
+  # Wifi Signal
+  - <<: !include sensor-wifi-signal.yaml
+
+  # Uptime
+  - <<: !include sensor-uptime.yaml
+
+  # Energy monitoring
+  - platform: cse7766
+    current:
+      name: "Current"
+      accuracy_decimals: 1
+      state_class: measurement
+      device_class: current
+    voltage:
+      name: "Voltage"
+      accuracy_decimals: 1
+      state_class: measurement
+      device_class: voltage
+    power:
+      name: "Power"
+      accuracy_decimals: 1
+      state_class: measurement
+      device_class: power
+      id: my_power
+    update_interval: 15s
+  - platform: total_daily_energy
+    name: "Energy D"
+    state_class: total_increasing
+    device_class: energy
+    power_id: my_power
+
+switch:
+  - platform: gpio
+    pin: GPIO12
+    id: relay
+    # It is assumed this switch is used for a piece of critical infrastructure.
+    # As such, we want it to remain ON turing reboots.
+    # Lastly- the only functionality exposed for interacting with this relay, is to quickly power cycle it.
+    restore_mode: ALWAYS_ON
+    # Hide from home assistant / mqtt.
+    internal: true
+
+  # Expose a "confirm restart" switch.
+  - platform: template
+    name: Confirm Restart
+    id: confirm_restart_sw
+    icon: mdi:alert
+    lambda: |-
+      return id(confirm_restart);
+    turn_on_action:
+      - lambda: |-
+          id(confirm_restart) = true;
+    turn_off_action:
+      - lambda: |-
+          id(confirm_restart) = false;
+
+button:
+  # Restart Button
+  - <<: !include button-restart.yaml
+
+  - platform: template
+    name: Power Cycle
+    icon: mdi:restart-alert
+    on_press:
+      - if:
+          condition:
+              lambda: 'return id(confirm_restart);'
+          then:
+            - switch.turn_off: relay
+            - delay: 0.5s
+            - switch.turn_on: relay
+            # Turn off confirm switch after cycling relay
+            - switch.turn_off: confirm_restart_sw
+
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes

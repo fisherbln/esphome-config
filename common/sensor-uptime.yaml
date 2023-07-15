@@ -1,0 +1,4 @@
+  - platform: uptime
+    name: Uptime
+    state_class: measurement
+    device_class: duration
