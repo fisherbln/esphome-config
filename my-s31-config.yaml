@@ -4,7 +4,6 @@ substitutions:
   # Put your own IPs here.
   ip_address: 10.1.2.3
   gateway: 10.1.2.1
-  <<: !include secrets.yaml
 
 <<: !include config/common.yaml
 <<: !include common/sonoff-s13-reset-only.yaml
