@@ -36,7 +36,7 @@ preferences:
 
 wifi:
   networks:
-  - ssid: !secret WIFI_SSD
+  - ssid: !secret WIFI_SSID
     password: !secret WIFI_PASSWORD
     manual_ip:
       static_ip: 10.28.20.34

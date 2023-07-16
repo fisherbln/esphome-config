@@ -36,7 +36,7 @@ preferences:
 
 wifi:
   networks:
-  - ssid: !secret WIFI_SSD
+  - ssid: !secret WIFI_SSID
     password: !secret WIFI_PASSWORD
   domain: !secret NET_DOMAIN
   reboot_timeout: 15min
