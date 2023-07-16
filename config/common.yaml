@@ -1,5 +1,5 @@
 wifi:
-  ssid: !secret WIFI_SSID
+  ssid: !secret WIFI_SSD
   password: !secret WIFI_PASSWORD
   domain: !secret NET_DOMAIN
   fast_connect: True
