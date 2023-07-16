@@ -1,7 +1,7 @@
 wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_pass}
-  domain: ${NET_DOMAIN}
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASSWORD
+  domain: !secret NET_DOMAIN
   fast_connect: True
   power_save_mode: none
   #manual_ip:
@@ -12,7 +12,7 @@ wifi:
 
   ap:
     ssid: "${devicename} Fallback"
-    password: ${fallback_pass}
+    password: !secret FALLBACK_PASS
 
 # captive_portal:
 
@@ -22,23 +22,23 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: ${encryption_key}
+    key: !secret ENCRYPTION_KEY
 
 ota:
-  password: ${ota_pass}
+  password: !secret OTA_PASSWORD
 
 # Enable Time Component
 time:
   - platform: sntp
-    servers: ${ntp_server_ip}
-    timezone: ${timezone}
+    servers: !secret NTP_SERVER_IP
+    timezone: !secret TIMEZONE
 
 # This section is optional. However, I configure all of my devices to also use MQTT, along with home assistant directly. 
 # MQTT allows me to easily integrate them into other systems.
 mqtt:
-  broker: ${mqtt_broker}
-  username: ${mqtt_user}
-  password: ${mqtt_pass}
+  broker: !secret MQTT_BROKER
+  username: mqtt
+  password: !secret MQTT_PASSWORD
   discovery: false
   log_topic:
     topic: esphome/logs/${devicename}
