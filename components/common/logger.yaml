@@ -1,0 +1,20 @@
+---
+# Logger component
+#
+# The logger component automatically logs all log messages through the serial
+# port and through MQTT topics.
+#
+# https://esphome.io/components/logger.html
+#
+
+substitutions:
+  log_level: INFO
+  log_baudrate: "115200"
+  # baud_rate (Optional, int): 
+  # The baud rate to use for the serial UART port. 
+  # Defaults to 115200. Set to 0 to disable logging via UART.
+
+logger:
+  #id: component_logger
+  baud_rate: ${log_baudrate}
+  level: ${log_level}
