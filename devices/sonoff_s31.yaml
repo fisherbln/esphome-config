@@ -1,0 +1,65 @@
+packages:
+  <<: !include_dir_named ../components/common
+  wifi: !include ../components/hardware/wifi.yaml
+  board: !include ../boards/esp_01.yaml
+
+substitutions:
+  log_baudrate: "0"
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    internal: true
+    id: the_button
+    on_press:
+      - switch.toggle: relay
+
+  - platform: status
+    name: Status
+
+sensor:
+  # Uptime
+  - <<: !include ../components/sensors/sensor-uptime.yaml
+
+  # Energy monitoring
+  - platform: cse7766
+    current:
+      name: "Current"
+      accuracy_decimals: 1
+      state_class: measurement
+      device_class: current
+    voltage:
+      name: "Voltage"
+      accuracy_decimals: 1
+      state_class: measurement
+      device_class: voltage
+    power:
+      name: "Power"
+      accuracy_decimals: 1
+      state_class: measurement
+      device_class: power
+      id: my_power
+    update_interval: 15s
+  - platform: total_daily_energy
+    name: "Energy D"
+    state_class: total_increasing
+    device_class: energy
+    power_id: my_power
+
+switch:
+  - platform: gpio
+    pin: GPIO12
+    id: relay
+    restore_mode: ALWAYS_ON
+
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes
