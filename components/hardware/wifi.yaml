@@ -5,8 +5,8 @@
 
 substitutions:
   wifi_ssid: !secret WIFI_SSID
-  wifi_password: !secret WIFI_PASSOWRD
-  wifi_ap_password: !secret wifi_fallback_ssid_password
+  wifi_password: !secret WIFI_PASSWORD
+  wifi_ap_password: !secret FALLBACK_PASS
   host_name: "${host_name}"
 
 wifi:

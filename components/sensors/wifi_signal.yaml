@@ -8,5 +8,8 @@
 #
 platform: wifi_signal
 id: sensor_wifi_signal
-name: "${friendly_name} WiFi Signal"
+#name: "${friendly_name} WiFi Signal"
+name: "WiFi Signal"
 update_interval: 300s
+state_class: measurement
+device_class: SIGNAL_STRENGTH

@@ -7,3 +7,7 @@ esphome:
   <<: !include .esphome.yaml
   platform: ESP8266
   board: esp01_1m
+  # https://esphome.io/components/esp8266.html
+  # https://github.com/esphome/issues/issues/3263
+  # Stops relay from cycling when restarting or flashing
+  #early_pin_init: false

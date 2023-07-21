@@ -5,5 +5,5 @@
 #
 # https://esphome.io/components/esphome.html
 #
-name: "${SYSTEM_NAME}"
-comment: "${DEVICE_DESCRIPTION}"
+name: "${system_name}"
+comment: "${device_description}"
