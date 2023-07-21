@@ -1,5 +1,0 @@
-  - platform: wifi_signal
-    name: "WiFi Signal"
-    update_interval: 60s
-    state_class: measurement
-    device_class: SIGNAL_STRENGTH

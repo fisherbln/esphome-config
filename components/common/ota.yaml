@@ -1,0 +1,3 @@
+ota:
+  # Create a secure password for pushing OTA updates.
+  password: !secret OTA_PASSWORD

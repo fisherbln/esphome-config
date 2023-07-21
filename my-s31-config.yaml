@@ -1,9 +1,0 @@
-substitutions:
-  devicename: "rack_core_switch"
-  friendly_name: "Core Switch"
-  # Put your own IPs here.
-  ip_address: 10.1.2.3
-  gateway: 10.1.2.1
-
-<<: !include config/common.yaml
-<<: !include devices/sonoff-s13-reset-only.yaml
