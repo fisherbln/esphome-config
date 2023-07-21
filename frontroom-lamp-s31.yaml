@@ -1,7 +1,7 @@
 ---
 substitutions:
-  system_name: fromroom-lamp-s31
-  host_name: frontroom-lamp-s31.nickeson.net
+  system_name: frontroomlamp-s31
+  host_name: FrontroomLamp.nickeson.net
   friendly_name: Frontroom Lamp S31
   device_description: Frontroom Lamp S31 Device
   #current_res: "0.00245"
