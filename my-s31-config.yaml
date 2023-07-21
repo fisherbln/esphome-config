@@ -6,4 +6,4 @@ substitutions:
   gateway: 10.1.2.1
 
 <<: !include config/common.yaml
-<<: !include common/sonoff-s13-reset-only.yaml
+<<: !include devices/sonoff-s13-reset-only.yaml

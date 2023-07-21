@@ -41,10 +41,11 @@ binary_sensor:
 
 sensor:
   # Wifi Signal
-  - <<: !include sensor-wifi-signal.yaml
+  #- <<: !include sensor-wifi-signal.yaml
+  - <<: !include ../components/sensors/wifi_signal.yaml
 
   # Uptime
-  - <<: !include sensor-uptime.yaml
+  - <<: !include ../components/sensors/sensor-uptime.yaml
 
   # Energy monitoring
   - platform: cse7766
@@ -98,7 +99,8 @@ switch:
 
 button:
   # Restart Button
-  - <<: !include button-restart.yaml
+  #- <<: !include button-restart.yaml
+  - <<: !include ../components/buttons/restart.yaml
 
   - platform: template
     name: Power Cycle
