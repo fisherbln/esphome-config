@@ -18,6 +18,7 @@ binary_sensor:
       inverted: True
     internal: true
     id: the_button
+    name: "${friendly_name} Button"
     on_press:
       - switch.toggle: relay
 
@@ -55,6 +56,8 @@ sensor:
 
 switch:
   - platform: gpio
+    #name: "Sonoff S31 Relay"
+    name: "${friendly_name} Relay"
     pin: GPIO12
     id: relay
     restore_mode: ALWAYS_ON
