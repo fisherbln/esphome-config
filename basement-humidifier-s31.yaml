@@ -1,0 +1,11 @@
+---
+substitutions:
+  system_name: basement-humidifier-s31
+  host_name: BasementHumidifier.nickeson.net
+  friendly_name: Basement Humidifier S31
+  device_description: Basement Humidifier S31 Device
+  #current_res: "0.00245"
+  #voltage_div: "963"
+
+packages:
+  device: !include devices/sonoff_s31.yaml
