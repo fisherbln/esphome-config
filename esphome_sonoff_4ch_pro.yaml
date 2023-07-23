@@ -1,0 +1,21 @@
+#esphome:
+#  name: sonoff_4ch_pro   # Name of the Node.
+#  platform: ESP8266      # Even if the chip is a ESP8285, they have the same family.
+#  board: esp01_1m
+#  on_boot:
+#    priority: -100
+#    then:
+#      light.turn_on:
+#        id: status_led
+
+---
+substitutions:
+  system_name: sonoff4chpro
+  host_name: sonoff4chpro.nickeson.net
+  friendly_name: Sonoff 4ch Pro
+  device_description: Sonoff 4ch Pro Device
+  #current_res: "0.00245"
+  #voltage_div: "963"
+
+packages:
+  device: !include devices/sonoff_4ch_pro.yaml
