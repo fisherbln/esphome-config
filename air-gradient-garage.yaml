@@ -44,7 +44,7 @@ wifi:
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   #ap:
   #  ssid: ${upper_devicename} Hotspot
-  #  password: !secret hotspot_pass
+  #  password: !secret HOTSPOT_PASS
 
 switch:
   - platform: safe_mode
