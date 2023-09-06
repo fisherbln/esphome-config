@@ -70,13 +70,11 @@ display:
     pages:
       - id: page1
         lambda: |-
-          it.printf(0, 0, id(opensans), "CO2:          %.0fppm", id(co2).state);
-          it.printf(0, 10, id(opensans), "PM 1.0:      %3.0f ppm", id(pm_1_0).state);
-          it.printf(0, 20, id(opensans), "PM25:        %.0f", id(pm_2_5).state);
-          it.printf(0, 30, id(opensans), "PM 10:       %3.0f ppm", id(pm_10_0).state);
-          it.printf(0, 40, id(opensans), "Humidity:    %.0f", id(humidity).state);
-          it.printf(0, 50, id(opensans), "Temperature: %.0fC", id(temp).state);
-          it.printf(80, 50, id(opensans), "/%.0fF", (id(temp).state * 1.8) + 32);
+          it.printf(0, 0, id(opensans), "Temp:        %.0fC/%.0fF", id(temp).state,(id(temp).state * 1.8) + 32);
+          it.printf(0, 10, id(opensans), "CO2:         %.0fppm", id(co2).state);
+          it.printf(0, 20, id(opensans), "PM 1/2.5/10: %.0f/%.0f/%.0f ppm", (id(pm_1_0).state), (id(pm_2_5).state), (id(pm_10_0).state));
+          it.printf(0, 30, id(opensans), "Humidity:    %.0f", id(humidity).state);
+          
 
 interval:
   - interval: 5s
