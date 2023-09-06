@@ -70,9 +70,11 @@ display:
     pages:
       - id: page1
         lambda: |-
-          it.printf(0, 0, id(opensans), "CO2: %.0fppm", id(co2).state);
-          it.printf(0, 15, id(opensans), "PM25: %.0f", id(pm25).state);
-          it.printf(0, 25, id(opensans), "Humidity: %.0f", id(humidity).state);
+          it.printf(0, 0, id(opensans), "CO2:          %.0fppm", id(co2).state);
+          it.printf(0, 10, id(opensans), "PM 1.0:      %3.0f ppm", id(pm_1_0).state);
+          it.printf(0, 15, id(opensans), "PM25:        %.0f", id(pm25).state);
+          it.printf(0, 30, id(opensans), "PM 10:       %3.0f ppm", id(pm_10_0).state);
+          it.printf(0, 25, id(opensans), "Humidity:    %.0f", id(humidity).state);
           it.printf(0, 35, id(opensans), "Temperature: %.0fC", id(temp).state);
 
 interval:
@@ -111,16 +113,34 @@ sensor:
   - platform: pmsx003
     type: PMSX003
     uart_id: uart10
+    pm_1_0:
+      id: pm_1_0
+      name: "${upper_devicename} Particulate Matter <1.0µm Concentration"
     pm_2_5:
       id: pm25
       name: "${upper_devicename} Particulate Matter <2.5µm Concentration"
-#    pm_10_0:
-#      id: pm100
-#      name: "Particulate Matter <10.0µm Concentration"
+    pm_2_5:
+      id: pm_2_5
+      name: "${upper_devicename} Particulate Matter <2.5µm Concentration"
+    pm_10_0:
+      id: pm_10_0
+      name: "${upper_devicename} Particulate Matter <10.0µm Concentration"
+    pm_0_3um:
+      id: pm_0_3um
+      name: "${upper_devicename} Particulate Matter >0.3µm Count"
+    pm_0_5um:
+      id: pm_0_5um
+      name: "${upper_devicename} Particulate Matter >0.5µm Count"
+    pm_1_0um:
+      id: pm_1_0um
+      name: "${upper_devicename} Particulate Matter >1.0µm Count"
+    pm_2_5um:
+      id: pm_2_5um
+      name: "${upper_devicename} Particulate Matter >2.5µm Count"
 #    formaldehyde:
 #      id: hcho
 #      name: "Formaldehyde (HCHO) concentration in µg per cubic meter"
-    update_interval: 180s
+    update_interval: 3min # Sensor will go into sleep mode for extended operation lifetime
       
   - platform: senseair
     uart_id: uart20
