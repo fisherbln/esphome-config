@@ -76,7 +76,7 @@ display:
           it.printf(0, 30, id(opensans), "PM 10:       %3.0f ppm", id(pm_10_0).state);
           it.printf(0, 40, id(opensans), "Humidity:    %.0f", id(humidity).state);
           it.printf(0, 50, id(opensans), "Temperature: %.0fC", id(temp).state);
-          it.printf(17, 50, id(opensans), "/%.0fF", (id(temp).state * 1.8) + 32);
+          it.printf(80, 50, id(opensans), "/%.0fF", (id(temp).state * 1.8) + 32);
 
 interval:
   - interval: 5s
