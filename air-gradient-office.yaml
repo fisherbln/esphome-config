@@ -55,6 +55,7 @@ captive_portal:
 i2c:
   sda: D2
   scl: D1
+  frequency: 400kHz
 
 font:
   - file: "/config/font/monofont.ttf"
