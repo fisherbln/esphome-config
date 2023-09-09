@@ -95,10 +95,10 @@ uart:
     id: uart_2
 
 sensor:
-  - platform: bh1750
-    name: "${upper_devicename} lux"
-    address: 0x23
-    update_interval: 60s
+  #- platform: bh1750
+  #  name: "${upper_devicename} lux"
+  #  address: 0x23
+  #  update_interval: 60s
     
   - platform: sht3xd
     temperature:
