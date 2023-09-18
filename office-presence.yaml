@@ -6,7 +6,7 @@ esphome:
   name: office-presence
   comment: office-presence
   friendly_name: Office Presence
-  name_add_mac_suffix: True
+  #name_add_mac_suffix: True
   platformio_options:
     board_build.flash_mode: dio
     # board_build.f_cpu: 80000000L
