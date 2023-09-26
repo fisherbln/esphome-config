@@ -6,7 +6,7 @@ substitutions:
   # Pretty name to show for entities in Home Assistant
   friendly_name: Garage Door Brian
   device_description: Garage Door Brian
-  host_name: garage-door-brian.nickeson.net
+  host_name: garagedoorbrian.nickeson.net
 
   #api_password: !secret garage_door_api_password
   #ota_password: !secret garage_door_ota_password
