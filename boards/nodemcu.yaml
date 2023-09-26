@@ -1,4 +1,11 @@
-esp8266:
+---
+# NodeMCU ESP8266
+#
+# https://esphome.io/devices/nodemcu_esp8266.html
+#
+esphome:
+  <<: !include .esphome.yaml
+  platform: ESP8266
   board: nodemcuv2
 
 status_led:
