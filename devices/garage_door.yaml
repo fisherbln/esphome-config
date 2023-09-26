@@ -3,7 +3,7 @@
 packages:
   <<: !include_dir_named ../components/common
   wifi: !include ../components/hardware/wifi.yaml
-  board: !include ../boards/esp_01.yaml
+  board: !include ../boards/nodemcu.yaml
   opengarage: !include ../components/packages/opengarage.yaml
 
 substitutions:
