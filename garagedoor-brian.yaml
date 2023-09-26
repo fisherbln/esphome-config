@@ -2,7 +2,7 @@
 substitutions:
   # For Home Assistant entity_id, hostname, etc.
   #device_id: garage_door
-  system_name: GarageDoorBrian
+  system_name: garagedoorbrian
   # Pretty name to show for entities in Home Assistant
   friendly_name: Garage Door Brian
   device_description: Garage Door Brian
