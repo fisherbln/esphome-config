@@ -36,7 +36,7 @@ binary_sensor:
 cover:
   # Main cover
   - platform: template
-    name: $device_name
+    name: $friendly_name
     id: garage_door_cover
     device_class: garage
     lambda: 'return id(distance).state <= id(door_threshold).state ? COVER_OPEN : COVER_CLOSED;'
@@ -108,7 +108,7 @@ script:
 button:
   # Frontend button
   - platform: template
-    name: $device_name Button
+    name: $friendly_name Button
     disabled_by_default: true
     on_press:
       switch.turn_on: relay
@@ -118,7 +118,7 @@ sensor:
   - platform: ultrasonic
     trigger_pin: GPIO12
     echo_pin: GPIO14
-    name: $device_name Distance
+    name: $friendly_name Distance
     id: distance
     update_interval: $distance_update_interval
     unit_of_measurement: cm
@@ -153,7 +153,7 @@ switch:
 
   # Open alarm config
   - platform: template
-    name: $device_name Open Alarm
+    name: $friendly_name Open Alarm
     id: open_alarm
     restore_mode: RESTORE_DEFAULT_OFF
     optimistic: true
@@ -162,7 +162,7 @@ switch:
 
   # Close alarm config
   - platform: template
-    name: $device_name Close Alarm
+    name: $friendly_name Close Alarm
     id: close_alarm
     restore_mode: RESTORE_DEFAULT_OFF
     optimistic: true
@@ -181,7 +181,7 @@ rtttl:
 number:
   # Door threshold config
   - platform: template
-    name: $device_name Door Threshold
+    name: $friendly_name Door Threshold
     id: door_threshold
     min_value: 0
     max_value: 300
@@ -197,7 +197,7 @@ number:
 
   # Car threshold config
   - platform: template
-    name: $device_name Car Threshold
+    name: $friendly_name Car Threshold
     id: car_threshold
     min_value: 0
     max_value: 300
@@ -213,7 +213,7 @@ number:
 
   # Relay click time config
   - platform: template
-    name: $device_name Relay Click Time
+    name: $friendly_name Relay Click Time
     id: relay_click_time
     min_value: 100
     max_value: 2000
@@ -228,7 +228,7 @@ number:
 
   # Open delay config
   - platform: template
-    name: $device_name Door Open Delay
+    name: $friendly_name Door Open Delay
     id: open_delay
     min_value: 5
     max_value: 60
@@ -243,7 +243,7 @@ number:
 
   # Close delay config
   - platform: template
-    name: $device_name Door Close Delay
+    name: $friendly_name Door Close Delay
     id: close_delay
     min_value: 5
     max_value: 60
