@@ -2,7 +2,7 @@
 binary_sensor:
   # Sensor status - could go in common
   - platform: status
-    name: $device_name Status
+    name: $friendly_name Status
 
   # Physical button
   - platform: gpio
