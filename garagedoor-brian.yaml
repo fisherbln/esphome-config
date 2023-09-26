@@ -33,7 +33,7 @@ substitutions:
   # Should be slightly larger than the distance from the ceiling to the top of the car.
   # Must be higher than the door threshold.
   # Entered in cm.
-  car_threshold: '150'
+  car_threshold: '900'
 
   # Length of time it takes for the door to open / close.
   # This is used to set the Opening/Closing states correctly
