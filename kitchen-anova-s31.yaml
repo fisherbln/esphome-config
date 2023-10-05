@@ -1,0 +1,11 @@
+---
+substitutions:
+  system_name: kitchenanova-s31
+  host_name: KitchenAnova-s31.nickeson.net
+  friendly_name: Kitchen Anova S31
+  device_description: Kitchen Anova S31 Device
+  #current_res: "0.00245"
+  #voltage_div: "963"
+
+packages:
+  device: !include devices/sonoff_s31.yaml
