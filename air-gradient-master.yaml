@@ -58,7 +58,7 @@ i2c:
   frequency: 400kHz
 
 font:
-  - file: "/config/font/monofont.ttf"
+  - file: "/esphome/config/font/monofont.ttf"
     id: opensans
     size: 12
 
