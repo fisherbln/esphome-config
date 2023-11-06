@@ -19,8 +19,12 @@ ota:
   password: !secret OTA_PASSWORD
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+  networks:
+  - ssid: !secret WIFI_SSID
+    password: !secret WIFI_PASSWORD
+  domain: !secret NET_DOMAIN
+  reboot_timeout: 15min
+
 
   # Enable fallback hotspot in case wifi connection fails
   #ap:
