@@ -2,11 +2,11 @@ esphome:
   name: bluetooth-proxy
   friendly_name: Bluetooth Proxy
 
+
 esp32:
-  board: lolin_c3_mini
+  board: esp32dev
   framework:
-    #type: esp-idf
-    type: arduino
+    type: esp-idf
 
 # Enable logging
 logger:

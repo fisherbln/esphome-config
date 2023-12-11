@@ -1,0 +1,11 @@
+---
+substitutions:
+  system_name: officeleftplug-s31
+  host_name: OfficeLeftPlug-s31.nickeson.net
+  friendly_name: Office Left Plug S31
+  device_description: Office Left Plug S31 Device
+  #current_res: "0.00245"
+  #voltage_div: "963"
+
+packages:
+  device: !include devices/sonoff_s31.yaml
