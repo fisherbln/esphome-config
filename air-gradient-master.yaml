@@ -73,7 +73,7 @@ display:
         lambda: |-
           it.printf(0, 0, id(opensans), "Temp:        %.0fC/%.0fF", id(temp).state,(id(temp).state * 1.8) + 32);
           it.printf(0, 10, id(opensans), "CO2:         %.0fppm", id(co2).state);
-          it.printf(0, 20, id(opensans), "PM 1/2.5/10: %.0f/%.0f/%.0f ppm", (id(pm_1_0).state), (id(pm_2_5).state), (id(pm_10_0).state));
+          it.printf(0, 20, id(opensans), "PM 1/2.5/10: %.0f/%.0f/%.0fppm", (id(pm_1_0).state), (id(pm_2_5).state), (id(pm_10_0).state));
           it.printf(0, 30, id(opensans), "Humidity:    %.0f", id(humidity).state);
           
 
@@ -87,12 +87,12 @@ uart:
   - rx_pin: D5
     tx_pin: D6
     baud_rate: 9600
-    id: uart_1
+    id: pms5003_uart
     
   - rx_pin: D4
     tx_pin: D3
     baud_rate: 9600
-    id: uart_2
+    id: senseair_s8_uart
 
 sensor:
   - platform: bh1750
@@ -112,7 +112,7 @@ sensor:
     
   - platform: pmsx003
     type: PMSX003
-    uart_id: uart_1
+    uart_id: pms5003_uart
     pm_1_0:
       id: pm_1_0
       name: "${upper_devicename} Particulate Matter <1.0µm Concentration"
@@ -140,7 +140,7 @@ sensor:
     update_interval: 3min # Sensor will go into sleep mode for extended operation lifetime
       
   - platform: senseair
-    uart_id: uart_2
+    uart_id: senseair_s8_uart
     co2:
       id: co2
       name: "${upper_devicename} SenseAir CO2 Value"
