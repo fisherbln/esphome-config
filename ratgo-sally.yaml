@@ -47,11 +47,15 @@ ota:
 improv_serial:
 
 wifi:
-  ap:
-networks:
+  networks:
   - ssid: !secret WIFI_SSID
     password: !secret WIFI_PASSWORD
   domain: !secret NET_DOMAIN
   reboot_timeout: 15min
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+  #  ssid: ${upper_devicename} Hotspot
+  #  password: !secret HOTSPOT_PASS
 
 logger:
