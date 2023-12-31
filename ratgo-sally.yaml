@@ -1,7 +1,7 @@
 ---
 substitutions:
-  id_prefix: ratgo-sally
-  friendly_name: "ratgo-sally"
+  id_prefix: ratgosally
+  friendly_name: "ratgosally"
   uart_tx_pin: D1
   uart_rx_pin: D2
   input_obst_pin: D7
