@@ -10,8 +10,8 @@ esp32:
     type: arduino
 
 external_components:
-  - source: github://tube0013/esphome-stream-server-v2@testing1
-  #- source: github://tube0013/esphome-stream-server-v2
+  #- source: github://tube0013/esphome-stream-server-v2@testing1
+  - source: github://tube0013/esphome-stream-server-v2
   - source: github://syssi/esphome-zeroconf@main
   
 dashboard_import:
