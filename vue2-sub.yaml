@@ -141,17 +141,13 @@ sensor:
       - phase_id: phase_a
         input: "A"  # Verify the CT going to this device input also matches the phase/leg
         power:
-          name: "Phase A Power"
           id: phase_a_power
-          device_class: power
-          filters: [*moving_avg, *pos]
+          filters: [*pos]
       - phase_id: phase_b
         input: "B"  # Verify the CT going to this device input also matches the phase/leg
         power:
-          name: "Phase B Power"
           id: phase_b_power
-          device_class: power
-          filters: [*moving_avg, *pos]
+          filters: [*pos]
       # Pay close attention to set the phase_id for each breaker by matching it to the phase/leg it connects to in the panel
       - { phase_id: phase_a, input:  "1", power: { id:  cir1, filters: [ *pos ] } }
       - { phase_id: phase_b, input:  "2", power: { id:  cir2, filters: [ *pos ] } }
