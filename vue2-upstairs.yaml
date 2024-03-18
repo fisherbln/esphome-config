@@ -37,10 +37,10 @@ logger:
     # This will disable printing the readings but keep other helpful messages
     sensor: INFO
 
-mqtt:
-  broker: 10.28.1.36
-  username: mqtt
-  password: !secret MQTT_PASSWORD
+#mqtt:
+#  broker: 10.28.1.36
+#  username: mqtt
+#  password: !secret MQTT_PASSWORD
 
 wifi:
   ssid: !secret WIFI_SSID
