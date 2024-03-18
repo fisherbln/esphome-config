@@ -32,6 +32,10 @@ ota:
 
 # Enable logging
 logger:
+  logs:
+    # by default, every reading will be printed to the UART, which is very slow
+    # This will disable printing the readings but keep other helpful messages
+    sensor: INFO
 
 mqtt:
   broker: 10.28.1.36
@@ -42,7 +46,7 @@ wifi:
   ssid: !secret WIFI_SSID
   password: !secret WIFI_PASSWORD
   domain: !secret NET_DOMAIN
-  reboot_timeout: 15min
+  #reboot_timeout: 15min
 
 preferences:
   # please also make sure `restore: false` is set on all `platform: total_daily_energy`
